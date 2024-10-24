@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums</title>
+</head>
+<body>
+    <!-- <h1>Albums</h1> -->
+
+    <a href="/albums/new">Add a new album</a>
+
+    {% for album in albums %}
+        <div>
+        <h2 class="album-title">{{ album.title }}</h2>
+        <h3 class="album-release-year">Released in: {{ album.release_year }}</h3> 
+        {% if artist %}
+            <h4>Artist: {{ artist }}</h4>
+            <a href="/albums">Back to all Albums</a>
+        {% else %}
+            <a href="/albums/{{album.id}}">Go to Album</a>
+        {% endif %}
+        
+        </div>
+        <br>
+
+    {% endfor %}
+
+</body>
+</html>

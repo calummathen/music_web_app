@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists</title>
+</head>
+<body>
+    <h1>Artists</h1>
+
+    <a href="/artists/new">Add a new artist</a>
+
+    {% for artist in artists %}
+        <div>
+        <h2 class="artist-name">{{ artist.name }}</h2>
+        <h3 class="artist-genre">Genre: {{ artist.genre }}</h3> 
+        {% if artists|length > 1 %}
+            <a href="/artists/{{artist.id}}">Go to Artist</a>
+        {% else %}
+            <a href="/artists">Back to all Artists</a>
+        {% endif %}
+        </div>
+        <br>
+
+    {% endfor %}
+
+</body>
+</html>
